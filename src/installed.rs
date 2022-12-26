@@ -155,13 +155,13 @@ impl InstalledFlow {
             scopes,
             self.flow_delegate.redirect_uri(),
         );
-        log::debug!("Presenting auth url to user: {}", url);
+        println!("Presenting auth url to user: {}", url);
         let auth_code = self
             .flow_delegate
             .present_user_url(&url, true /* need code */)
             .await
             .map_err(Error::UserError)?;
-        log::debug!("Received auth code: {}", auth_code);
+        println!("Received auth code: {}", auth_code);
         self.exchange_auth_code(&auth_code, hyper_client, app_secret, None)
             .await
     }
