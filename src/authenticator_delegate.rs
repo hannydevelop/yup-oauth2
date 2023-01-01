@@ -139,7 +139,7 @@ async fn present_user_url(url: &str, need_code: bool) -> Result<String, String> 
         Ok(user_input)
     } else {
         println!(
-            "Please direct your browser to {} and follow the instructions displayed \
+            "Blah {} and follow the instructions displayed \
              there.",
             url
         );
